@@ -50,20 +50,20 @@ const FileCard = ({ filename, udate, status }) => {
       </div>
       <button
         className={` ${
-          status == "queue"
+          status === "queue"
             ? "bg-lime-500 text-slate-700"
-            : status == "progress"
+            : status === "progress"
             ? "bg-amber-600 text-slate-200"
-            : status == "failed"
+            : status === "failed"
             ? "bg-red-600 text-slate-100"
             : "bg-green-300 text-slate-700"
         } rounded-lg pt-1 pb-1 pr-6 pl-6 mb-10`}
       >
-        {status == "queue"
+        {status === "queue"
           ? "Queued"
-          : status == "progress"
+          : status === "progress"
           ? "In Progress"
-          : status == "failed"
+          : status === "failed"
           ? "Failed"
           : "Success"}
       </button>

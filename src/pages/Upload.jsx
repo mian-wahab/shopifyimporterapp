@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import FileCard from "../components/FileCard";
 
 function Upload() {
@@ -41,9 +41,9 @@ function Upload() {
     setCurrentPage((prevPage) => prevPage + 1);
   };
 
-  useEffect(() => {
+  useCallback(() => {
     fetchData();
-  }, [currentPage,selectedFile]);
+  }, [currentPage, fetchData, selectedFile]);
 
   //https://app.shopifyimportpro.com
 

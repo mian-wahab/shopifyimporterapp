@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate, } from "react-router-dom";
 
 export const Dashboard = () => {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ export const Dashboard = () => {
     else{
       navigate("/dashboard");
     }
-  },[])
+  },[navigate])
 
   const handleLogout=()=>{
     localStorage.removeItem("token")
