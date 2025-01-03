@@ -19,7 +19,7 @@ const FileCard = ({ filename, udate, status }) => {
    const handleCancel = async () => {
     try {
       // Call the API to update the file status in the database
-      await axios.get(`http://localhost:9000/api/upload/cancel/${filename}`);
+      await axios.get(`https://shopifyimportpro.com/api/upload/cancel/${filename}`);
 
       window.location.reload();
     } catch (error) {
@@ -34,14 +34,14 @@ const FileCard = ({ filename, udate, status }) => {
         <p className="text-gray-600 text-sm">
           {formattedDateTime} |{" "}
           <a
-            href={`http://localhost:9000/uploads/${filename}`}
+            href={`https://shopifyimportpro.com/uploads/${filename}`}
             className="text-cyan-600 text-sm"
           >
             Download File 
           </a>
           {" "}|{" "}
           <a
-            href={`http://localhost:9000/uploads/logs/${filename.replace('.csv', '')}.txt`}
+            href={`https://shopifyimportpro.com/uploads/logs/${filename.replace('.csv', '')}.txt`}
             className="text-teal-600 text-sm"
           >
             Logs 
@@ -50,20 +50,20 @@ const FileCard = ({ filename, udate, status }) => {
       </div>
       <button
         className={` ${
-          status === "queue"
+          status == "queue"
             ? "bg-lime-500 text-slate-700"
-            : status === "progress"
+            : status == "progress"
             ? "bg-amber-600 text-slate-200"
-            : status === "failed"
+            : status == "failed"
             ? "bg-red-600 text-slate-100"
             : "bg-green-300 text-slate-700"
         } rounded-lg pt-1 pb-1 pr-6 pl-6 mb-10`}
       >
-        {status === "queue"
+        {status == "queue"
           ? "Queued"
-          : status === "progress"
+          : status == "progress"
           ? "In Progress"
-          : status === "failed"
+          : status == "failed"
           ? "Failed"
           : "Success"}
       </button>

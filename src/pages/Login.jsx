@@ -15,7 +15,7 @@ function Login() {
 
     let config = {
       method: "POST",
-      url: "http://localhost:9000/api/auth/get",
+      url: "https://shopifyimportpro.com/api/auth/get",
       headers: {
         "Content-Type": "application/json",
       },

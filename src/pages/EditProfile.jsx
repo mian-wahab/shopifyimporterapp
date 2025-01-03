@@ -9,7 +9,7 @@ function EditProfile() {
   function handleUsernameUpdate() {
     let config = {
       method: "get",
-      url: `http://localhost:9000/api/auth/pusername/${username}`,
+      url: `https://shopifyimportpro.com/api/auth/pusername/${username}`,
     };
     axios
       .request(config)
@@ -29,7 +29,7 @@ function EditProfile() {
     if (password === cpassword) {
       let config = {
         method: "get",
-        url: `http://localhost:9000/api/auth/putpass/${username}`,
+        url: `https://shopifyimportpro.com/api/auth/putpass/${username}`,
       };
       axios
         .request(config)

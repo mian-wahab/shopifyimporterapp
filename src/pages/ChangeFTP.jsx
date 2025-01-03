@@ -17,7 +17,7 @@ function ChangeFTP() {
   function getFTPData() {
     let config = {
       method: "get",
-      url: "http://localhost:9000/api/ftp/get",
+      url: "https://shopifyimportpro.com/api/ftp/get",
     };
 
     axios
@@ -35,7 +35,7 @@ function ChangeFTP() {
   function updateFTPData() {
     let config = {
         method: 'post',
-        url: 'http://localhost:9000/api/ftp/put',
+        url: 'https://shopifyimportpro.com/api/ftp/put',
         headers: { 
           'Content-Type': 'application/json'
         },

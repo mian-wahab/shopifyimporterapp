@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import FileCard from "../components/FileCard";
 
 function Upload() {
@@ -14,7 +14,7 @@ function Upload() {
       setLoading(true);
       let config = {
         method: "GET",
-        url: `http://localhost:9000/api/upload/getall?page=${currentPage}`,
+        url: `https://shopifyimportpro.com/api/upload/getall?page=${currentPage}`,
       };
       axios
         .request(config)
@@ -43,9 +43,9 @@ function Upload() {
 
   useEffect(() => {
     fetchData();
-  }, [currentPage, selectedFile]);  
+  }, [currentPage,selectedFile]); // Fetch data whenever the current page changes
 
-  //https://app.shopifyimportpro.com
+  //https://shopifyimportpro.com
 
   useEffect(() => {
     // Function to toggle the sidebar
@@ -82,7 +82,7 @@ function Upload() {
 
         // Make API call to upload file
         const response = await axios.post(
-          "http://localhost:9000/api/upload/post",
+          "https://shopifyimportpro.com/api/upload/post",
           formData,
           {
             headers: {
