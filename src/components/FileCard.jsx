@@ -11,15 +11,15 @@ const FileCard = ({ filename, udate, status }) => {
     let minutes = date.getMinutes();
     const ampm = hours >= 12 ? 'PM' : 'AM';
     hours = hours % 12;
-    hours = hours ? hours : 12; // Handle midnight (0 hours)
-    minutes = minutes < 10 ? '0' + minutes : minutes; // Add leading zero to minutes if needed
+    hours = hours ? hours : 12; 
+    minutes = minutes < 10 ? '0' + minutes : minutes; 
     return `${hours}:${minutes}:${date.getSeconds()} ${ampm}`;
   }
 
    const handleCancel = async () => {
     try {
       // Call the API to update the file status in the database
-      await axios.get(`https://shopifyimportpro.com/api/upload/cancel/${filename}`);
+      await axios.get(`http://localhost:9000/api/upload/cancel/${filename}`);
 
       window.location.reload();
     } catch (error) {
@@ -28,27 +28,35 @@ const FileCard = ({ filename, udate, status }) => {
   };
   
   return (
-    <div className="flex flex-col md:flex-row md:justify-between pt-10 pr-10 pl-10 pb-4 rounded-lg cursor-pointer   hover:bg-gray-100 border-b-2 border-slate-300">
+    <div className="flex flex-col md:flex-row md:justify-between pt-10 pr-10 pl-10 pb-4 rounded-lg cursor-pointer   hover:bg-gray-100 border-b-2 border-slate-300" style={{gap:"10px",padding: "10px"}}>
       <div className="mb-4 md:mb-0">
         <h3 className="text-xl text-slate-700 font-bold mb-2">{filename}</h3>
         <p className="text-gray-600 text-sm">
           {formattedDateTime} |{" "}
           <a
-            href={`https://shopifyimportpro.com/uploads/${filename}`}
+            href={`http://localhost:9000/uploads/${filename}`}
             className="text-cyan-600 text-sm"
           >
             Download File 
           </a>
           {" "}|{" "}
           <a
-            href={`https://shopifyimportpro.com/uploads/logs/${filename.replace('.csv', '')}.txt`}
+            href={`http://localhost:9000/uploads/logs/${filename.replace('.csv', '')}.txt`}
             className="text-teal-600 text-sm"
           >
             Logs 
           </a>
+          {" "}|{" "}
+          {status === "progress" && (
+          <button
+            onClick={handleCancel}
+            className="text-teal-600 text-sm">
+            Cancel
+          </button>)};
         </p>
       </div>
       <button
+      style={{maxWidth: "150px", width:"100%",}}
         className={` ${
           status == "queue"
             ? "bg-lime-500 text-slate-700"
@@ -67,6 +75,7 @@ const FileCard = ({ filename, udate, status }) => {
           ? "Failed"
           : "Success"}
       </button>
+     
     </div>
   );
 };

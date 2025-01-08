@@ -9,7 +9,7 @@ function EditProfile() {
   function handleUsernameUpdate() {
     let config = {
       method: "get",
-      url: `https://shopifyimportpro.com/api/auth/pusername/${username}`,
+      url: `http://localhost:9000/api/auth/pusername/${username}`,
     };
     axios
       .request(config)
